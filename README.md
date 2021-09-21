@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+<p align="center">
+  <img src="src\assets\img\png\transparentBanner.png" width="60%" />
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##
 
-## Available Scripts
+<p align="center">
+  <a href="#project-star2">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#techs-rocket">Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#installation-wrench">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#start-on">Start</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <br>
+  <br>
 
-In the project directory, you can run:
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/leoronne/letmeask">
+  <img alt="Top language" src="https://img.shields.io/github/languages/top/leoronne/letmeask">
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/leoronne/letmeask">
 
-### `yarn start`
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p align="center">
+  <img src="src\assets\img\png\banner.png"/>
+</p>
 
-### `yarn test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project :star2:
 
-### `yarn build`
+This application is an example of how to integrate with Memed using React.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+For more information regarding the integration with Memed, you can check [here](https://ajuda.memed.com.br/pt-BR/collections/1456059-sou-parceiro-integracao).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `yarn eject`
+Deployed [here](https://memed-react.ronne.dev).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Techs :rocket:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [x] [ReactJS](https://reactjs.org);
+- [x] [TypeScript](https://www.typescriptlang.org/);
+- [x] [Styled Components](https://styled-components.com/).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<br>
 
-## Learn More
+## Installation :wrench:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+First you need to clone the project using `git clone https://github.com/leoronne/memed-integration-react.git`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Then you can install the application using `yarn install` on the root directory.
+
+<br>
+
+## Start :on:
+
+To start the application interface just run `yarn start` on the root dir.
+
+PS: Remember to create an `.env` file on the root dir based on the [.env.example](https://github.com/leoronne/memed-integration-react/blob/master/.env.example).
+
+##
