@@ -12,9 +12,9 @@
   <br>
   <br>
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/leoronne/letmeask">
-  <img alt="Top language" src="https://img.shields.io/github/languages/top/leoronne/letmeask">
-  <img alt="Last commit" src="https://img.shields.io/github/last-commit/leoronne/letmeask">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/leoronne/memed-integration-react">
+  <img alt="Top language" src="https://img.shields.io/github/languages/top/leoronne/memed-integration-react">
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/leoronne/memed-integration-react">
 
 </p>
 
@@ -33,10 +33,6 @@ This application is an example of how to integrate with Memed using React.
 <br>
 
 For more information regarding the integration with Memed, you can check [here](https://ajuda.memed.com.br/pt-BR/collections/1456059-sou-parceiro-integracao).
-
-<br>
-
-Deployed [here](https://memed-react.ronne.dev).
 
 <br>
 
