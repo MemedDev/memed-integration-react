@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
+import Providers from './providers';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { FlexContainer, LoaderSpinner } from './components/ui';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <React.Suspense
+    fallback={
+      // <body> native margins
+      <FlexContainer height="calc(100vh - 16px)">
+        <LoaderSpinner size={40} />
+      </FlexContainer>
+    }
+  >
+    <Providers>
+      <App />
+    </Providers>
+  </React.Suspense>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { UserState } from './store/user/types';
+import { AppState } from './store';
+
+import { authenticateToken, finishRendering } from './store/user/actions';
+
+import Routes from './routes';
+
+import { FlexContainer, LoaderSpinner } from './components/ui';
 
 function App() {
+  const dispatch = useDispatch();
+  const { rendering, user } = useSelector<AppState, UserState>(state => state.userState);
+
+  useEffect(() => {
+    const userToken = localStorage.getItem('@Memed:user-token');
+
+    if (userToken && userToken !== user?.token) dispatch(authenticateToken(userToken));
+    else dispatch(finishRendering());
+  }, [user, dispatch]);
+
+  if (rendering) {
+    return (
+      <FlexContainer height="100vh">
+        <LoaderSpinner size={40} />
+      </FlexContainer>
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
   );
 }
 
