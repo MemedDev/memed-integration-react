@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src\assets\img\png\transparentBanner.png" width="60%" />
+  <img src="client\src\assets\img\png\transparentBanner.png" width="60%" />
 </p>
 
 ##
@@ -21,18 +21,14 @@
 ##
 
 <p align="center">
-  <img src="src\assets\img\png\banner.png"/>
+  <img src="client\src\assets\img\png\banner.png"/>
 </p>
 
 <br>
 
 ## Project :star2:
 
-Esse repositório contêm um exemplo de integração com a Memed utilizando React.
-
-<br>
-
-Todos os artigos, passo-a-passos e explicações técnicas a cerca da integração estão centralizadas no nosso [helpcenter](https://ajuda.memed.com.br/pt-BR/collections/1456059-sou-parceiro-integracao).
+Nesse repositório você encontrará um exemplo de integração com a [Memed](https://memed.com.br/) utilizando React. Todos os artigos, passo-a-passos e explicações técnicas a cerca da integração estão centralizadas no nosso [helpcenter](https://ajuda.memed.com.br/pt-BR/collections/1456059-sou-parceiro-integracao).
 
 <br>
 
@@ -50,16 +46,16 @@ Acrescentamos um back-end simples ao projeto para exemplificar que é mais acons
 
 ## Installation :wrench:
 
-First you need to clone the project using `git clone https://github.com/MemedDev/memed-integration-react.git`.
+Clone o projeto na sua máquina com `git clone https://github.com/MemedDev/memed-integration-react.git`.
 
-Then you can install the application using `yarn install` on the client and server directory.
+Instale as dependências da aplicação utilizando `yarn install` nos diretórios `client` e `server`.
 
 <br>
 
 ## Start :on:
 
-To start the application interface just run `yarn start` on the client dir and `yarn dev:server` on the server dir.
+Para iniciar o front-end da aplicação utilize `yarn start` dentro do diretório `client` e para iniciar o back-end use `yarn dev:server` no `server`.
 
-PS: Remember to create an `.env` file on the root dir based on the .env.example on both [client](https://github.com/MemedDev/memed-integration-react/blob/master/client/.env.example) and [server](https://github.com/MemedDev/memed-integration-react/blob/master/server/.env.example).
+PS: Lembre-se de criar um arquivo `.env` baseado no .env.example tanto no diretório [client](https://github.com/MemedDev/memed-integration-react/blob/master/client/.env.example) como no [server](https://github.com/MemedDev/memed-integration-react/blob/master/server/.env.example).
 
 ##
