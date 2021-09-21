@@ -4,7 +4,7 @@ import { OptionsObject, SnackbarKey, SnackbarMessage } from 'notistack';
 
 import { GetUserInterface } from '../../interfaces/user';
 
-import { apiMemed } from '../../services/api';
+import { api } from '../../services/api';
 
 import { AppState } from '../index';
 import { Action as FetchAction, ActionTypes } from './types';
@@ -15,19 +15,20 @@ export const authenticate: ActionCreator<ThunkAction<void, AppState, null, Actio
       localStorage.removeItem('@Memed:user-token');
       dispatch({
         type: ActionTypes.AUTHENTICATION,
+        rendering: false,
       });
 
       try {
-        const { data }: GetUserInterface = await apiMemed.get(`/v1/sinapse-prescricao/usuarios/${search}`);
+        const { data }: GetUserInterface = await api.get(`user/search/${search}`);
 
         dispatch({
           type: ActionTypes.AUTHENTICATION_SUCCESS,
-          userToken: data?.data?.attributes?.token,
-          user: data?.data?.attributes,
+          userToken: data?.userToken,
+          user: data?.user,
         });
-        localStorage.setItem('@Memed:user-token', data?.data?.attributes?.token);
+        localStorage.setItem('@Memed:user-token', data?.userToken);
       } catch (err: any) {
-        const error = err?.response?.data?.errors.length > 0 ? err?.response?.data?.errors[0]?.detail : err.message;
+        const error = err?.response?.data?.error || err.message;
 
         dispatch({
           type: ActionTypes.AUTHENTICATION_ERROR,
@@ -39,24 +40,25 @@ export const authenticate: ActionCreator<ThunkAction<void, AppState, null, Actio
     };
 
 export const authenticateToken: ActionCreator<ThunkAction<void, AppState, null, Action<FetchAction>>> =
-  (search: string) =>
+  (token: string) =>
     async (dispatch: Dispatch<FetchAction>): Promise<void | string> => {
       localStorage.removeItem('@Memed:user-token');
       dispatch({
         type: ActionTypes.AUTHENTICATION,
+        rendering: true,
       });
 
       try {
-        const { data }: GetUserInterface = await apiMemed.get(`/v1/usuarios?token=${search}`);
+        const { data }: GetUserInterface = await api.get(`user/${token}`);
 
         dispatch({
           type: ActionTypes.AUTHENTICATION_SUCCESS,
-          userToken: data?.data?.attributes?.token,
-          user: data?.data?.attributes,
+          userToken: data?.userToken,
+          user: data?.user,
         });
-        localStorage.setItem('@Memed:user-token', data?.data?.attributes?.token);
+        localStorage.setItem('@Memed:user-token', data?.userToken);
       } catch (err: any) {
-        const error = err?.response?.data?.errors.length > 0 ? err?.response?.data?.errors[0]?.detail : err.message;
+        const error = err?.response?.data?.error || err.message;
 
         dispatch({
           type: ActionTypes.AUTHENTICATION_ERROR,
@@ -73,7 +75,7 @@ export const resetState: ActionCreator<ThunkAction<void, AppState, null, Action<
         type: ActionTypes.RESET_STATE,
       });
     };
-    
+
 export const finishRendering: ActionCreator<ThunkAction<void, AppState, null, Action<FetchAction>>> =
   () =>
     (dispatch: Dispatch<FetchAction>): void => {

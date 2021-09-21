@@ -20,6 +20,7 @@ export default function reducer(state = INITIAL_STATE, action: Action): UserStat
     case ActionTypes.AUTHENTICATION:
       return {
         ...INITIAL_STATE,
+        rendering: action.rendering,
         loading: true,
       };
 

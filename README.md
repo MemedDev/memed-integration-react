@@ -28,34 +28,38 @@
 
 ## Project :star2:
 
-This application is an example of how to integrate with Memed using React.
+Esse repositório contêm um exemplo de integração com a Memed utilizando React.
 
 <br>
 
-For more information regarding the integration with Memed, you can check [here](https://ajuda.memed.com.br/pt-BR/collections/1456059-sou-parceiro-integracao).
+Todos os artigos, passo-a-passos e explicações técnicas a cerca da integração estão centralizadas no nosso [helpcenter](https://ajuda.memed.com.br/pt-BR/collections/1456059-sou-parceiro-integracao).
+
+<br>
+
+Acrescentamos um back-end simples ao projeto para exemplificar que é mais aconselhável realizar as requisições às APIs da Memed via server side, como por exemplo às de autenticação e busca do usuário (para poder buscar o token JWT utilizado na integração no front-end).
 
 <br>
 
 ## Techs :rocket:
 
 - [x] [ReactJS](https://reactjs.org);
-- [x] [TypeScript](https://www.typescriptlang.org/);
-- [x] [Styled Components](https://styled-components.com/).
+- [x] [Node.js](https://reactjs.org);
+- [x] [TypeScript](https://www.typescriptlang.org/).
 
 <br>
 
 ## Installation :wrench:
 
-First you need to clone the project using `git clone https://github.com/leoronne/memed-integration-react.git`.
+First you need to clone the project using `git clone https://github.com/MemedDev/memed-integration-react.git`.
 
-Then you can install the application using `yarn install` on the root directory.
+Then you can install the application using `yarn install` on the client and server directory.
 
 <br>
 
 ## Start :on:
 
-To start the application interface just run `yarn start` on the root dir.
+To start the application interface just run `yarn start` on the client dir and `yarn dev:server` on the server dir.
 
-PS: Remember to create an `.env` file on the root dir based on the [.env.example](https://github.com/leoronne/memed-integration-react/blob/master/.env.example).
+PS: Remember to create an `.env` file on the root dir based on the .env.example on both [client](https://github.com/MemedDev/memed-integration-react/blob/master/client/.env.example) and [server](https://github.com/MemedDev/memed-integration-react/blob/master/server/.env.example).
 
 ##

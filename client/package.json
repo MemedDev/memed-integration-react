@@ -3,7 +3,7 @@
   "description": "This application is an example of how to integrate with Memed using React.",
   "version": "1.0.0",
   "main": "index.tsx",
-  "repository": "https://github.com/leoronne/memed-integration-react",
+  "repository": "https://github.com/MemedDev/memed-integration-react",
   "author": "Leonardo Ronne <leoronne@gmail.com>",
   "license": "MIT",
   "dependencies": {

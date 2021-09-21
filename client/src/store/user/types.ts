@@ -19,6 +19,7 @@ export enum ActionTypes {
 
 export interface AuthenticationAction {
   type: ActionTypes.AUTHENTICATION;
+  rendering: boolean;
 }
 
 export interface AuthenticationSuccessAction {

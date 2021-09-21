@@ -46,5 +46,8 @@ export interface UserInterface {
 }
 
 export interface GetUserInterface {
-  data: { data: { attributes: UserInterface } };
+  data: {
+    user: UserInterface;
+    userToken: string;
+  };
 }
