@@ -21,12 +21,25 @@ const MemedContext = createContext({} as MemedContextProps);
 
 function MemedProvider({ children }: Props) {
   const logOut = () => {
-    // Parar os event listeners da Memed
-    MdHub.server.unbindEvents();
+    try {
+      // Parar os event listeners da Memed
+      MdHub.server.unbindEvents();
 
-    // Remover o objeto principal da Memed
-    // @ts-expect-error
-    delete window.MdHub;
+      // Remover os objetos principais da Memed
+      // @ts-expect-error
+      delete window.MdHub;
+      // @ts-expect-error
+      delete window.MdSinapsePrescricao;
+
+      const scripts = Array.from(document.getElementsByTagName('script'));
+      if (scripts && scripts.length > 0) {
+        scripts.forEach(script => {
+          if (script.src.includes('memed.com.br')) script?.parentNode?.removeChild(script);
+        });
+      }
+    } catch (err: any) {
+      console.error(err);
+    }
   };
 
   const definePacient = (pacient: PacientInterface): Promise<any> => {
@@ -61,22 +74,30 @@ function MemedProvider({ children }: Props) {
 
   const initEventsMemed = () => {
     try {
-      MdSinapsePrescricao.event.add('core:moduleHide', (modulo: { moduleName: string }) => {
-        if (modulo.moduleName === 'plataforma.prescricao') {
+      MdSinapsePrescricao.event.add('core:moduleHide', (module: { moduleName: string }) => {
+        if (module.moduleName === 'plataforma.prescricao') {
           console.info('====== Módulos da Memed encerrados ======');
         }
       });
 
-      MdSinapsePrescricao.event.add('core:moduleInit', function setFeatureToggle() {
-        MdHub.command.send('plataforma.prescricao', 'setFeatureToggle', {
-          // Desativa a opção de excluir um paciente
-          deletePatient: false,
-          // Desabilita a opção de remover/trocar o paciente
-          removePatient: false,
-          // Esconde o formulário de confirmação dos dados do paciente para receituário de controle especial
-          // caso a cidade e o endereço tenham sido definidos com o comando `setPaciente`
-          editPatient: false,
-        });
+      MdSinapsePrescricao.event.add('core:moduleInit', (module: { name: string }) => {
+        if (module.name === 'plataforma.prescricao') {
+          MdHub.command.send('plataforma.prescricao', 'setFeatureToggle', {
+            // Desativa a opção de excluir um paciente
+            deletePatient: false,
+            // Desabilita a opção de remover/trocar o paciente
+            removePatient: false,
+            // Esconde o formulário de confirmação dos dados do paciente para receituário de controle especial
+            // caso a cidade e o endereço tenham sido definidos com o comando `setPaciente`
+            editPatient: false,
+          });
+
+          MdHub.event.add('prescricaoImpressa', prescriptionData => {
+            // No objeto "prescriptionData", é retornado as informações da prescrição gerada.
+            // Implementar ações, callbacks, etc.
+            console.info('====== Prescrição gerada com sucesso ======', prescriptionData);
+          });
+        }
       });
     } catch (err: any) {
       console.error(err);
